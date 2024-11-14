@@ -12,9 +12,9 @@ val Pink40 = Color(0xFF7D5260)
 
 
 //theme
-val primaryColor = Color(0xFF0F1731) // 0xFF0F1731
-val primaryColorAccent = Color(0xFF6293BE) // 0xFF6293BE
-val primaryColorLightAccent = Color(0xFFBEC8EA) // 0xFFBEC8EA
+val primaryColor = Color(0xFF6650a4) // 0xFF0F1731
+val primaryColorAccent = Color(0xFFD0BCFF) // 0xFF6293BE
+val primaryColorLightAccent = Color(0xFFCCC2DC) // 0xFFBEC8EA
 
 val secondaryColor = Color(0xFFA6A6A6)
 val secondaryColorAccent = Color(0xFFD3D3D3)
