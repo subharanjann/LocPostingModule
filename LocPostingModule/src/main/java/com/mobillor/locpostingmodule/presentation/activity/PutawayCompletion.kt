@@ -37,17 +37,17 @@ import com.mobillor.locpostingmodule.data.repository.PalletPutawayRepositoryImpl
 import com.mobillor.locpostingmodule.domain.useCase.GetLocationUseCase
 import com.mobillor.locpostingmodule.domain.useCase.GetMappedToPalletUseCase
 import com.mobillor.locpostingmodule.domain.useCase.PutawayPalletUseCase
-import com.mobillor.locpostingmodule.presentation.commonComposables.BasicBottomButton
-import com.mobillor.locpostingmodule.presentation.commonComposables.TopNavigationBar
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.SEGMK3Theme
 import com.mobillor.locpostingmodule.presentation.composable.LocationHintForPallet
 import com.mobillor.locpostingmodule.presentation.composable.LocationPostingLocationFloatingButtonForItemPutaway
 import com.mobillor.locpostingmodule.presentation.composable.LocationPostingPalletInfoCard
 import com.mobillor.locpostingmodule.presentation.composable.MappedToPalletInfoList
+import com.mobillor.locpostingmodule.presentation.composable.TopNavigationBar
 import com.mobillor.locpostingmodule.presentation.viewModel.PalletPutawayCompletionVm
 import com.mobillor.locpostingmodule.presentation.viewModelFactory.PalletPutawayVmFactory
 import com.mobillor.locpostingmodule.util.BaseActivity
 import com.mobillor.locpostingmodule.util.Resource
+import com.mobillor.themeresourcemodule.commonComposables.BasicBottomButton
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.SEGMK3Theme
 import org.json.JSONException
 import org.json.JSONObject
 

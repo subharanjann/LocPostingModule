@@ -1,6 +1,8 @@
 package com.mobillor.locpostingmodule.presentation.composable
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -38,11 +40,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mobillor.locpostingmodule.presentation.commonComposables.DashedLine
-import com.mobillor.locpostingmodule.presentation.commonComposables.TextStyles
 import androidx.compose.foundation.lazy.items
-import com.mobillor.locpostingmodule.presentation.commonComposables.CurvedBoxWithDottedBorder
-import com.mobillor.locpostingmodule.presentation.commonComposables.VerticalDashedLine
+import androidx.compose.material3.CardDefaults.cardElevation
 import com.mobillor.locpostingmodule.presentation.viewModel.BinPutawayCompletionVm
 import com.mobillor.locpostingmodule.presentation.viewModel.ItemPutawayCompletionVm
 import com.mobillor.locpostingmodule.presentation.viewModel.PalletPutawayCompletionVm
@@ -53,14 +52,19 @@ import com.mobillor.locpostingmodule.data.model.DataResponseItemInfo
 import com.mobillor.locpostingmodule.data.model.DataResponseMappedToPallet
 import com.mobillor.locpostingmodule.data.model.DataResponsePalletInfo
 import com.mobillor.locpostingmodule.data.model.ResponseMappedToBin
-import com.mobillor.locpostingmodule.presentation.commonComposables.BasicScanButton
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.SEGMK3Theme
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.darkIndigo
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.lightIndigo
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.lightPurpleStuff
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.primaryColor
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.primaryColorAccent
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.secondaryColorAccent
+import com.mobillor.themeresourcemodule.commonComposables.BasicScanButton
+import com.mobillor.themeresourcemodule.commonComposables.CurvedBoxWithDottedBorder
+import com.mobillor.themeresourcemodule.commonComposables.DashedLine
+import com.mobillor.themeresourcemodule.commonComposables.TextStyles
+import com.mobillor.themeresourcemodule.commonComposables.VerticalDashedLine
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.SEGMK3Theme
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.darkIndigo
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.lightIndigo
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.lightPurpleStuff
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.primaryColor
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.primaryColorAccent
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.secondaryColorAccent
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.white
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -84,9 +88,7 @@ fun Greeting3() {
         LocationHint()
         PalletHint("hellow world")
         BinHint()
-        BasicBottomButton(){
-            Toast.makeText(context,"clicki", Toast.LENGTH_SHORT).show()
-        }
+
         Row(){
             LocationPostingLocationFloatingButton(){
                 Toast.makeText(context,"location clicki", Toast.LENGTH_SHORT).show()
@@ -202,22 +204,6 @@ fun LocationPostingBinInfoCard(card: DataResponseBinInfo) {
         }
     }
 
-
-}
-@Composable
-fun LocationPostingBinInfoList(viewModel: PalletScanVm, currentStatus: String){
-    val state by viewModel.BinList.observeAsState()
-    val list = state
-    LazyColumn(
-        Modifier
-            .fillMaxSize()
-            .padding(8.dp)) {
-        if(!list.isNullOrEmpty())
-            items(list){ card ->
-                LocationPostingBinInfoCard(card)
-
-            }
-    }
 
 }
 
@@ -357,36 +343,7 @@ fun LocationPostingPalletInfoCard(card: DataResponsePalletInfo, convertDateForma
 
 
 }
-@SuppressLint("SuspiciousIndentation")
-@Composable
-fun LocationPostingPalletInfoList(viewModel: PalletScanVm, currentStatus: String){
-    val state by viewModel.PalletList.observeAsState()
-    val list = state
 
-            LazyColumn(
-                Modifier
-                    .fillMaxSize()
-                    .padding(bottom = 4.dp)) {
-                if(!list.isNullOrEmpty())
-                items(list) { card ->
-                    Column(Modifier.padding(vertical = 2.dp)) {}
-                   // LocationPostingPalletInfoCard(card,card.cd?.convertDateFormat(),viewModel)
-                    Column(Modifier.padding(vertical = 2.dp)) {}
-                }
-            }
-}
-fun String.convertDateFormat(): String? {
-    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
-    val outputFormat = SimpleDateFormat("dd MMM yy", Locale.getDefault())
-
-    return try {
-        val date = inputFormat.parse(this)
-        outputFormat.format(date)
-    } catch (e: ParseException) {
-        e.printStackTrace()
-        null
-    }
-}
 
 //item
 @Composable
@@ -503,21 +460,7 @@ fun LocationPostingItemInfoCard(card: DataResponseItemInfo) {
     }
 
 }
-@Composable
-fun LocationPostingItemInfoList(viewModel: PalletScanVm, currentStatus: String){
-    val state by viewModel.ItemList.observeAsState()
-    val list = state
-    LazyColumn(
-        Modifier
-            .fillMaxSize()
-            .padding(bottom = 4.dp)) {
-        if(!list.isNullOrEmpty())
-            items(list){card ->
-                LocationPostingItemInfoCard(card)
-            }
-    }
 
-}
 @Composable
 fun LocationPostingItemInfoListForItemPutaway(list:List<DataResponseItemInfo>){
 
@@ -979,26 +922,64 @@ fun BinHintForItem(viewModel: ItemPutawayCompletionVm) {
     }
 
 }
+@Composable
+fun TopNavigationBar(name : String,OnBackClick : ()->Unit) {
 
+    Card(
+        colors = CardDefaults.cardColors(containerColor = primaryColor),
+        elevation = cardElevation(8.dp),
+        modifier = Modifier
+            .padding(horizontal = 10.dp)
+            .fillMaxWidth()
+            .height(60.dp)
+    )
+    {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Absolute.SpaceBetween
+        )
+        {
+
+            Image(
+                painter = painterResource(id = R.drawable.back),
+                contentDescription = "",
+
+                modifier = Modifier
+                    .size(40.dp)
+                    .padding(start = 16.dp)
+                    .clickable(onClick = OnBackClick)
+            )
+            Spacer(modifier = Modifier
+                .height(20.dp)
+                .weight(1f))
+
+            Text(
+                text = name,
+                style = TextStyles.whiteTitleTextStyle
+            )
+
+            Spacer(modifier = Modifier.height(20.dp).weight(1f))
+                Image(
+                    painter = painterResource(id = com.mobillor.themeresourcemodule.R.drawable.homeicon2),
+                    contentDescription = "",
+
+                    modifier = Modifier
+                        .size(40.dp)
+                        .padding(end = 16.dp),
+                    colorFilter = ColorFilter.tint(primaryColor)                 )
+
+
+        }
+
+    }
+
+}
 //buttons
 
-@Composable
-fun BasicBottomButton(onClick: () -> Unit){
-    Button(
-        onClick = onClick,
-        modifier = Modifier
-            .height(48.dp) // Set height of the button
-            .fillMaxWidth(1f)
-            .padding(horizontal = 12.dp),
-        shape = MaterialTheme.shapes.medium,
-        colors = ButtonDefaults.buttonColors(primaryColor) // Set background color
-    ) {
-        Text(
-            text = "Drop",
-            color = Color.White // Set text color
-        )
-    }
-}
+
 
 @Composable
 fun  LocationPostingLocationFloatingButton(onClick: () -> Unit){

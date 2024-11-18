@@ -36,19 +36,19 @@ import com.mobillor.locpostingmodule.domain.useCase.GetLocationUseCase
 import com.mobillor.locpostingmodule.domain.useCase.GetMappedToBinUseCase
 import com.mobillor.locpostingmodule.domain.useCase.GetPalletLocationUseCase
 import com.mobillor.locpostingmodule.domain.useCase.PutawayBinUseCase
-import com.mobillor.locpostingmodule.presentation.commonComposables.BasicBottomButton
-import com.mobillor.locpostingmodule.presentation.commonComposables.TopNavigationBar
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.SEGMK3Theme
 import com.mobillor.locpostingmodule.presentation.composable.LocationHintForBin
 import com.mobillor.locpostingmodule.presentation.composable.LocationPostingBinInfoCard
 import com.mobillor.locpostingmodule.presentation.composable.LocationPostingLocationFloatingButtonForItemPutaway
 import com.mobillor.locpostingmodule.presentation.composable.LocationPostingPalletFloatingButtonForItemPutaway
 import com.mobillor.locpostingmodule.presentation.composable.MappedToBinInfoList
 import com.mobillor.locpostingmodule.presentation.composable.PalletHintForBin
+import com.mobillor.locpostingmodule.presentation.composable.TopNavigationBar
 import com.mobillor.locpostingmodule.presentation.viewModel.BinPutawayCompletionVm
 import com.mobillor.locpostingmodule.presentation.viewModelFactory.BinPutawayVmFactory
 import com.mobillor.locpostingmodule.util.BaseActivity
 import com.mobillor.locpostingmodule.util.Resource
+import com.mobillor.themeresourcemodule.commonComposables.BasicBottomButton
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.SEGMK3Theme
 import org.json.JSONException
 import org.json.JSONObject
 

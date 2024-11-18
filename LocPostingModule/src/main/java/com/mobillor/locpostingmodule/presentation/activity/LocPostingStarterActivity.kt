@@ -51,16 +51,18 @@ import com.mobillor.locpostingmodule.data.model.DataResponseItemInfo
 import com.mobillor.locpostingmodule.data.model.DataResponsePalletInfo
 import com.mobillor.locpostingmodule.data.repository.PalletScanRepositoryImpl
 import com.mobillor.locpostingmodule.domain.useCase.GetBinByIdUseCase
-import com.mobillor.locpostingmodule.presentation.commonComposables.ScanHintCard
-import com.mobillor.locpostingmodule.presentation.commonComposables.TopNavigationBar
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.SEGMK3Theme
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.darkPurpleStuff
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.lightpurplestuff
+
 import com.mobillor.locpostingmodule.presentation.composable.ColorChangingRow
+import com.mobillor.locpostingmodule.presentation.composable.TopNavigationBar
 import com.mobillor.locpostingmodule.presentation.viewModel.PalletScanVm
 import com.mobillor.locpostingmodule.presentation.viewModelFactory.PalletScanVmFactory
 import com.mobillor.locpostingmodule.util.BaseActivity
 import com.mobillor.locpostingmodule.util.Resource
+import com.mobillor.themeresourcemodule.commonComposables.ScanHintCard
+
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.SEGMK3Theme
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.darkPurpleStuff
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.lightPurpleStuff
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -258,7 +260,7 @@ class LocPostingStarterActivity : BaseActivity() {
                 // Bin Scan Button
                 FloatingActionButton(
                     onClick = { onScanButtonClick(status) },
-                    containerColor = lightpurplestuff,
+                    containerColor = lightPurpleStuff,
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
                         .padding(end = 16.dp)
