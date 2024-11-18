@@ -21,9 +21,10 @@ import com.mobillor.locpostingmodule.data.model.ResponseBinInfo
 import com.mobillor.locpostingmodule.data.model.ResponseItemInfo
 import com.mobillor.locpostingmodule.data.model.ResponsePalletInfo
 import com.mobillor.locpostingmodule.domain.useCase.GetBinByIdUseCase
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.darkGrey
-import com.mobillor.locpostingmodule.presentation.commonComposables.ui.theme.primaryColorAccent
+
 import com.mobillor.locpostingmodule.util.Resource
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.darkGrey
+import com.mobillor.themeresourcemodule.commonComposables.ui.theme.primaryColorAccent
 import kotlinx.coroutines.launch
 
 class PalletScanVm(private val getPalletByIdUseCase: GetPalletByIdUseCase,

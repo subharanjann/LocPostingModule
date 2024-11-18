@@ -1,8 +1,6 @@
 package com.mobillor.locpostingmodule.presentation.composable
 
-import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Context
+
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,8 +18,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FloatingActionButton
@@ -64,10 +60,6 @@ import com.mobillor.themeresourcemodule.commonComposables.ui.theme.lightPurpleSt
 import com.mobillor.themeresourcemodule.commonComposables.ui.theme.primaryColor
 import com.mobillor.themeresourcemodule.commonComposables.ui.theme.primaryColorAccent
 import com.mobillor.themeresourcemodule.commonComposables.ui.theme.secondaryColorAccent
-import com.mobillor.themeresourcemodule.commonComposables.ui.theme.white
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 
 @Preview(showBackground = true)
